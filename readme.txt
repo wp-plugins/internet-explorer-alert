@@ -18,4 +18,14 @@
 
 
 == Installation ==
-   Like all the other WordPress plugin
+
+1. Upload `iealert` to the `/wp-content/plugins/internet-explorer-alert/` directory
+(this can be done automatically via the WordPress 2.8 Plugin Browser/Installer interface or later)
+2. Activate the plugin through the 'Plugins' menu in WordPress
+
+
+
+
+== Screenshots ==
+
+1. Default logo with the plugin activated

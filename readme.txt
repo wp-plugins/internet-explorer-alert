@@ -30,3 +30,4 @@
 == Screenshots ==
 
 1. Default logo with the plugin activated
+2. Default logo with the plugin activated

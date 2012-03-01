@@ -3,7 +3,7 @@
     Contributors: shariarbd
     Plugin Name: Internet Explorer Alert
     Plugin URI: http://shariarbd.com/
-    Tags: Internet Explorer Alert, IE alert
+    Tags: Internet Explorer Alert, IE Alert, IE6, IE7, IE8, All IE
     Author URI: http://shariarbd.com/
     Author: Md. Shariar
     Donate link: http://shariarbd.com/

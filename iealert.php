@@ -9,7 +9,7 @@ Author URI: http://shariarbd.com/
 */
 
 
-$iecondition=4; 
+$iecondition=3; 
 // This variable helps to specify the exact action for Internet Explorer. See below...
 /* 
 $iecondition = ?

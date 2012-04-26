@@ -2,18 +2,18 @@
 
     Contributors: shariarbd
     Plugin Name: Internet Explorer Alert
-    Plugin URI: http://shariarbd.com/
-    Tags: Internet Explorer Alert, IE Alert, IE6, IE7, IE8, IE9, All IE
+    Plugin URI: http://shariarbd.com/plugins/internet-explorer-alert-v-2_5/
+    Tags: Internet Explorer Alert, IE Alert, IE6, IE7, IE8, IE9, IE10, All IE, Detection, Browser, Upgrade IE,
     Author URI: http://shariarbd.com/
     Author: Md. Shariar
-    Donate link: http://shariarbd.com/
-    Requires at least: 3.0
+    Requires at least: 2.9
     Tested up to: 3.3.1
     Version: version 2.5
 
+Detect Internet Explorer and Suggest for Recommended Web Browser 
 
 == Description ==
-   <strong>Internet Explorer Alert</strong> is created to Alert visitor to use Recommended Browser 
+   <p align="justify"><strong>Internet Explorer Alert</strong> is created to Alert visitor to use Recommended Browser 
 like Firefox, Chrome etc. That is if anyone browse your site with Internet Explorer, he/she will alert 
 by your site to use Recommended web Browser. Also, they will get the Recommended web Browser download link! 
 <strong>By Default, It Detect and Alert for Internet Explorer 7 or Later. You can Customize the Internet Explorer 
@@ -21,7 +21,7 @@ Detection Easily from Settings of your Admin Panel. Also you can set the alert m
 it will display the Default Alert Message.  For More, 
    <a href="http://shariarbd.com/plugins/internet-explorer-alert-v-2_5/" target="_blank">Visit Plugin Site</a>.</strong>
    Demo at <a href="http://shariarbd.com/" target="_blank">http://shariarbd.com</a>(Will work only if visit the site with Internet Explorer).
-   Plugin is created by <cite><a href="http://shariarbd.com" title="Md. Sahriar">Md. Shariar</a>.</cite> 
+   Plugin is created by <cite><a href="http://shariarbd.com" title="Md. Sahriar">Md. Shariar</a>.</cite> </p>
    
 == Installation ==
 

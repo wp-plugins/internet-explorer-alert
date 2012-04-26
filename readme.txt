@@ -3,14 +3,14 @@
     Contributors: shariarbd
     Plugin Name: Internet Explorer Alert
     Plugin URI: http://shariarbd.com/plugins/internet-explorer-alert-v-2_5/
-    Tags: Internet Explorer Alert, IE Alert, IE6, IE7, IE8, IE9, IE10, All IE, Detection, Browser, Upgrade IE,
+    Tags: Internet Explorer Alert, IE Alert, IE6, IE7, IE8, IE9, IE10, All IE, betection, browser, Upgrade IE,
     Author URI: http://shariarbd.com/
     Author: Md. Shariar
     Requires at least: 2.9
     Tested up to: 3.3.1
-    Version: version 2.5
+    Version: 2.5
 
-Detect Internet Explorer and Suggest for Recommended Web Browser 
+Can Detect Internet Explorer and Suggest for Recommended Web Browser 
 
 == Description ==
    <p align="justify"><strong>Internet Explorer Alert</strong> is created to Alert visitor to use Recommended Browser 

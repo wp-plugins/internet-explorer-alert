@@ -175,7 +175,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE) {
     </fieldset>
   </form>
   </table>
-  <div style="float:right; color:#09F; font-size:14px; text-transform:uppercase;"><strong>If you love this plugin, <a href="http://wordpress.org/extend/plugins/internet-explorer-alert" target="_blank">Please Vote.</a></strong></div>
+  <div style="float:right; color:#09F; font-size:14px; text-transform:uppercase;"><strong>If you love this plugin, <a href="http://wordpress.org/extend/plugins/internet-explorer-alert" target="_blank">Please Rate THIS Five Star.</a></strong></div>
 </div>
 <?php
 }

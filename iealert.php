@@ -3,7 +3,7 @@
 Plugin Name: Internet Explorer Alert!
 Plugin URI: http://shariarbd.com/plugins/internet-explorer-alert-v-2_5/
 Description: <strong>Internet Explorer Alert</strong> is created to Alert visitor to use Recommended Browser like Firefox, Chrome etc. That is if anyone browse your site with Internet Explorer, he/she will alert by your site to use Recommended web Browser. Also, they will get the Recommended web Browser download link! <strong>By Default, It Detect and Alert for Internet Explorer 7 or Later. You can Customize the Internet Explorer Detection Easily from Settings of your Admin Panel. Also you can set the alert message if you wish; otherwise it will display the Default Alert Message.  For More, Visit Plugin Site. </strong>  Plugin is created by <cite><a href="http://shariarbd.com" title="Md. Sahriar">Md. Shariar</a>.</cite> 
-Version: 2.5
+Version: 3.0
 Author: Md. Shariar
 Author URI: http://shariarbd.com/
 */
@@ -61,6 +61,12 @@ $iems1 = "You are using Internet Explorer";
 $iems2 = "Please Click OK to get the Recommended Browser Download Link.";
 $iems3 = "If Internet Explorer blocked pop-up, allow.";
 $wp_IEA_Alert_Message = get_option('IEA_Alert_Message');
+$wp_IEA_Alert_DLink = get_option('IEA_Alert_DLink');
+
+if($wp_IEA_Alert_DLink!="")
+{$newwindownote= 
+"window.open('".$wp_IEA_Alert_DLink."','','scrollbars=Yes,menubar=no,height=600,width=800,resizable=yes,toolbar=no,location=no,status=no');";
+}
 
 if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE) {
 	if($wp_IEA_Alert_Message=="" || $wp_IEA_Alert_Message==" " || $wp_IEA_Alert_Message=="   ")
@@ -133,6 +139,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE) {
 		update_option('IEA_Version_Select',$_POST['IEA_Version_Select']);
 		update_option('IEA_Deactive',$_POST['IEA_Deactive']);
 		update_option('IEA_Alert_Message',$_POST['IEA_Alert_Message']);
+		update_option('IEA_Alert_DLink',$_POST['IEA_Alert_DLink']);
         echo '<h3 style="color:green;">Your Site Is Now Ready to Alert.</h3>';
 	}
 	$wp_IEA_Version_Select = get_option('IEA_Version_Select');
@@ -161,7 +168,12 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE) {
             <h2>Enter Alert Message Here </h2>
             <input name="IEA_Alert_Message" type="text" id="IEA_Alert_Message" value="<?php echo get_option('IEA_Alert_Message') ;?>" size="60"/>
             <br>
-            <span style="color: #06C; text-transform:uppercase;">If Empty, The Default Alert Message will be Displayed; Otherwise The Entered Text will be Displayed When User Browse Site With IE (Version Chosen Above).</span></td>
+            <span style="color: #06C; text-transform:uppercase;">If Empty, The Default Alert Message will be Displayed; Otherwise The Entered Text will be Displayed When User Browse Site With IE (Version Chosen Above).</span>
+			
+			<h2>Enter Custom Browser Download Link </h2>
+			<input name="IEA_Alert_DLink" type="text" id="IEA_Alert_DLink" value="<?php echo get_option('IEA_Alert_DLink') ;?>" size="60"/>
+			<br><span style="color: #06C; text-transform:uppercase;">If Empty, The Default Browser Download Page will be Displayed; Otherwise the Entered Link will be Displayed.</span>
+			</td>
         </tr>
         
           <td><!-- <h3><input type="checkbox" id="IEA_Deactive" name="IEA_Deactive" value="IEA_Deactive" <?php if($wp_IEA_Deactive == true) { echo('checked="checked"'); } ?> />

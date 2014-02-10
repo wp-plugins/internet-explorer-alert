@@ -3,7 +3,7 @@
     Contributors: shariarbd
     Plugin Name: Internet Explorer Alert
     Plugin URI: http://shariarbd.com/plugins/internet-explorer-alert-v-2_5/
-    Tags: Internet Explorer Alert, IE Alert, IE6, IE7, IE8, IE9, IE10, All IE, Detection, browser, Upgrade IE, Custom IE Alert
+    Tags: Internet Explorer Alert, IE Alert, IE6, IE7, IE8, IE9, IE10, All IE, Detection, Browser, Upgrade IE, Custom IE Alert
     Author URI: http://shariarbd.com/
     Author: Md. Shariar
     Requires at least: 2.9

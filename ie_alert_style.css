@@ -1,0 +1,43 @@
+.ie_alert_bottom{
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	min-height: 30px;
+	width: 100%;
+	font-size: .85em;
+	line-height: 30px;
+	background: black;
+	color: white;
+	text-align: center;
+	border-top:2px solid green;
+	font-family: Helvetica, Arial, Geneva, sans-serif;
+	overflow: hidden;
+	z-index: 0;
+}
+
+.ie_alert_bottom a{
+color: red;
+text-decoration: none;
+}
+
+.ie_alert_top{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	min-height: 30px;
+	width: 100%;
+	font-size: .85em;
+	line-height: 30px;
+	background: black;
+	color: white;
+	text-align: center;
+	border-bottom:2px solid green;
+	font-family: Helvetica, Arial, Geneva, sans-serif;
+	overflow: hidden;
+	z-index: 0;
+}
+
+.ie_alert_top a{
+color: red;
+text-decoration: none;
+}

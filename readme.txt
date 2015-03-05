@@ -7,8 +7,8 @@
     Author URI: http://shariarbd.com/
     Author: Md. Shariar
     Requires at least: 2.9
-    Tested up to: 3.8.1
-    Version: 3.5
+    Tested up to: 4.1.1
+    Version: 4.0
 
 Can Detect Internet Explorer and Suggest for Recommended Web Browser 
 

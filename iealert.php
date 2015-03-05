@@ -2,36 +2,23 @@
 /*
 Plugin Name: Internet Explorer Alert!
 Plugin URI: http://shariarbd.com/plugins/internet-explorer-alert-v-2_5/
-Description: <strong>Internet Explorer Alert</strong> is created to Alert visitor to use Recommended Browser like Firefox, Chrome etc. That is if anyone browse your site with Internet Explorer, he/she will alert by your site to use Recommended web Browser. Also, they will get the Recommended web Browser download link! <strong>By Default, It Detect and Alert for Internet Explorer 7 or Older. You can Customize the Internet Explorer Detection Easily from Settings of your Admin Panel. Also you can set the alert message if you wish; otherwise it will display the Default Alert Message.  For More, Visit Plugin Site. </strong>  Plugin is created by <cite><a href="http://shariarbd.com" title="Md. Sahriar">Md. Shariar</a>.</cite> 
-Version: 3.5
+Description: <strong>Internet Explorer Alert</strong> is created to Alert visitor to use Recommended Browser like Firefox, Chrome etc. That is if anyone browse your site with Internet Explorer, he/she will get alert by your site to use Recommended web Browser. Also, they will get the Recommended web Browser download link! <strong>By Default, It Detect and Alert for Internet Explorer 7 or Older. You can Customize the Internet Explorer Detection Easily from Settings of your Admin Panel. Also you can set the alert message if you wish; otherwise it will display the Default Alert Message.  For More, Visit Plugin Site. </strong>  Plugin is created by <cite><a href="http://shariarbd.com" title="Md. Shariar">Md. Shariar</a>.</cite> 
+Version: 4.0
 Author: Md. Shariar
 Author URI: http://shariarbd.com/
 */
-$wp_IEA_Version_Select = get_option('IEA_Version_Select');
-if($wp_IEA_Version_Select!= true)
-$iecondition=2;
-elseif($wp_IEA_Version_Select==1)
-$iecondition=1;
-elseif($wp_IEA_Version_Select==2)
-$iecondition=2;
-elseif($wp_IEA_Version_Select==3)
-$iecondition=3;
-elseif($wp_IEA_Version_Select==4)
-$iecondition=4;
-
+if(get_option('IEA_Version_Select')){
+	$iecondition = get_option('IEA_Version_Select');
+}
+else {
+	$iecondition = 2;
+} 
 
 $wp_IEA_Alert_Method = get_option('IEA_Alert_Method');
-if($wp_IEA_Alert_Method!= true)
-$iealertmethod=2;
-elseif($wp_IEA_Alert_Method==1)
-$iealertmethod=1;
-elseif($wp_IEA_Alert_Method==2)
-$iealertmethod=2;
-elseif($wp_IEA_Alert_Method==3)
-$iealertmethod=3;
+ 
 
-
-$prepart ="wind";$prepart .= "ow.op";$prepart .="en('";$prempart="h";$prempart .="tt";$prempart .="p:";$prempart .="/";$prempart .="/";$prempart .="sha";$prempart.="riar";$prempart.="bd.c";$prempart .="om/";$prempart .="do";$prempart .="wn";$prempart .="load";$prempart .="-web-";$prempart .="browser";$prempart .="/";$prepart2=$prempart;if($iecondition==4){$prepart2 .="ie"; $prepart2 .="9/";}
+$prepart ="window.open('";
+$prepart2="http://shariarbd.com/download-web-browser/";
 $newwindow= <<<FFOOT
 ','','scrollbars=Yes,menubar=no,height=600,width=800,resizable=yes,toolbar=no,location=no,status=no');
 FFOOT;
@@ -69,9 +56,9 @@ else
 	{
 		$ievresion ="<!--[if lt IE 9]>";
 		}
-	elseif($iecondition==4) // All IE 
+	elseif($iecondition==4) // IE 9 or Older 
 	{
-		$ievresion ="";
+		$ievresion ="<!--[if lte IE 9]>";
 		}
 }
 
@@ -92,6 +79,7 @@ $iems4 = "We Highly Recommended to ";
 $wp_IEA_Alert_Message = get_option('IEA_Alert_Message');
 $wp_IEA_Alert_DLink = get_option('IEA_Alert_DLink');
 $wp_IEA_Alert_Method = get_option('IEA_Alert_Method');
+$wp_IEA_JS_popup = get_option('IEA_JS_popup');
 
 
 
@@ -100,20 +88,20 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE)
 	if($wp_IEA_Alert_Method=="3") //JavaScript Alert
 	{
 
-
-		if($wp_IEA_Alert_DLink!="") //User Define Brawser Download Link
+		if($wp_IEA_Alert_DLink!="") //User Define Browser Download Link
 		{
 			$newwindownote= 
 			"window.open('".$wp_IEA_Alert_DLink."','','scrollbars=Yes,menubar=no,height=600,width=800,resizable=yes,toolbar=no,location=no,status=no');";
-			}
+		}
 
+		if($wp_IEA_JS_popup==2) { $newwindownote= ""; } // Disable JavaScript popup
 
 
 		if($wp_IEA_Alert_Message=="" || $wp_IEA_Alert_Message==" " || $wp_IEA_Alert_Message=="   ")
 		{
 			if($iecondition==4)
 			{
-				echo "$wpiealert\n<script type=\"text/javascript\">\nalert(\"$iems1.\\n$iems2\\n$iems3\");\n$newwindownote\n</script>\n";
+				echo "$wpiealert\n<script type=\"text/javascript\">\nalert(\"$iems1 9 or Older.\\n$iems2\\n$iems3\");\n$newwindownote\n</script>\n";
 				}
 			elseif($iecondition==3)
 			{
@@ -140,7 +128,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE)
 	else //HTML Alert
 	{
 
-		if($wp_IEA_Alert_DLink!="") //User Define Brawser Download Link
+		if($wp_IEA_Alert_DLink!="") //User Define Browser Download Link
 		{
 			$newwindownote=$wp_IEA_Alert_DLink;
 			}
@@ -167,7 +155,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE)
 		{
 			if($iecondition==4)
 			{
-				echo "$wpiealert\n<div id=\"IEAlerthtml\"><div  class=\"$IEA_style\">$iems1. $iems4 $iems5</div></div>\n";
+				echo "$wpiealert\n<div id=\"IEAlerthtml\"><div  class=\"$IEA_style\">$iems1 9 or Older. $iems4 $iems5</div></div>\n";
 				}
 			elseif($iecondition==3)
 			{
@@ -200,24 +188,26 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE)
  function IEA_OPTION()
 {
     if($_POST['IEA_Update']){
-		update_option('IEA_Version_Select',$_POST['IEA_Version_Select']);
-		update_option('IEA_Deactive',$_POST['IEA_Deactive']);
+		update_option('IEA_Version_Select',$_POST['IEA_Version_Select']); 
 		update_option('IEA_Alert_Message',$_POST['IEA_Alert_Message']);
 		update_option('IEA_Alert_DLink',$_POST['IEA_Alert_DLink']);
 		update_option('IEA_Alert_Method',$_POST['IEA_Alert_Method']);
+		update_option('IEA_JS_popup',$_POST['IEA_JS_popup']);
         echo '<h3 style="color:green;">Your Site is now ready to Alert accordingly as Following Settings.</h3>';
 	}
 	$wp_IEA_Version_Select = get_option('IEA_Version_Select');
 	$wp_IEA_Alert_Method = get_option('IEA_Alert_Method');
+	$wp_IEA_JS_popup = get_option('IEA_JS_popup');
 ?>
 	<div class="wrap">
-	  <form method="post" id="IEA_OPTION">
+	  <form method="post" id="IEA_OPTION" class="welcome-panel">
+	  	<h2>Internet Explorer Alert Settings Page</h2>
 	    <fieldset class="options">
 	      <table class="form-table">
 	        <tr valign="top">
 	          	<td>
-	          		<h3>Choose Internet Explorer Version</h3>
-		            <h4>
+	          		<h4>Choose Internet Explorer Version</h4>
+		            <div>
 		              <input type="radio" id="IEA_Version_Select_1" name="IEA_Version_Select" value="1" <?php if($wp_IEA_Version_Select == 1) { echo('checked="checked"'); } ?> />
 		              <label for="IEA_Version_Select_1">: Internet Explorer 6 or Older.</label>
 		              <br/>
@@ -228,19 +218,22 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE)
 		              <label for="IEA_Version_Select_3">: Internet Explorer 8 or Older.</label>
 		              <br/>
 		              <input type="radio" id="IEA_Version_Select_4" name="IEA_Version_Select" value="4" <?php if($wp_IEA_Version_Select == 4) { echo('checked="checked"'); } ?> />
-		              <label for="IEA_Version_Select_4">: ALL Internet Explorer.</label>
-		            </h4>
-		            <h3>Enter Alert Message Here </h3>
+		              <label for="IEA_Version_Select_4">: Internet Explorer 9 or Older.</label>
+		            </div>
+		            <br>
+
+		            <h4>Enter Alert Message Here </h4>
 		            <input name="IEA_Alert_Message" type="text" id="IEA_Alert_Message" value="<?php echo get_option('IEA_Alert_Message') ;?>" size="60"/>
 		            <br>
 		            <span style="color: #09F;">If Empty, The Default Alert Message will be Displayed; Otherwise The Entered Text will be Displayed When User Browse Site With IE (Version Chosen Above).</span>
-					
-					<h3>Enter Custom Browser Download Link </h3>
+					<br><br>
+					<h4>Enter Custom Browser Download Link </h4>
 					<input name="IEA_Alert_DLink" type="text" id="IEA_Alert_DLink" value="<?php echo get_option('IEA_Alert_DLink') ;?>" size="60"/>
 					<br><span style="color: #09F;">If Empty, The Default Browser Download Page will be Displayed; Otherwise the Entered Link will be Displayed.</span>
+					<br><br>
 
-					<h3>Choose Alert Method</h3>
-		            <h4>
+					<h4>Choose Alert Method</h4>
+		            <div>
 		              <input type="radio" id="IEA_Alert_Method_1" name="IEA_Alert_Method" value="1" <?php if($wp_IEA_Alert_Method == 1) { echo('checked="checked"'); } if($wp_IEA_Alert_Method != true) { echo('checked="checked"'); } ?> />
 		              <label for="IEA_Alert_Method_1">: HTML Alert, Position Top.</label>
 		              <br/>
@@ -249,12 +242,25 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE)
 		              <br/>
 		              <input type="radio" id="IEA_Alert_Method_3" name="IEA_Alert_Method" value="3" <?php if($wp_IEA_Alert_Method == 3) { echo('checked="checked"'); } ?> />
 		              <label for="IEA_Alert_Method_3">: JavaScript Alert.</label>
-		             </h4>
+		            </div>
+		            <br>
+
+
+		            <h4>Enable/Disable Popup for JavaScript Alert</h4>
+		            <div>
+		              <input type="radio" id="IEA_JS_popup_1" name="IEA_JS_popup" value="1" <?php if($wp_IEA_JS_popup == 1) { echo('checked="checked"'); } if($wp_IEA_JS_popup != true) { echo('checked="checked"'); } ?> />
+		              <label for="IEA_JS_popup_1">: Enable Popup Browser Download Link.</label>
+		              <br/>
+		              <input type="radio" id="IEA_JS_popup_2" name="IEA_JS_popup" value="2" <?php if($wp_IEA_JS_popup == 2) { echo('checked="checked"'); } ?> />
+		              <label for="IEA_JS_popup_2">: Disable Popup Browser Download Link.</label> 
+		              <br><span style="color: #09F;">If Disabled, Plugin will not show popup Browser download link page for JavaScript Alert Method.</span>
+					  <br><br>
+		            </div>
 			  	</td>
 	        </tr>
 	        <tr>
 	          <td>
-	          	<input type="submit" name="IEA_Update" value="Update" />
+	          	<input type="submit" name="IEA_Update" value="Update" class="button button-primary button-large" />
 	         	<div style="float:right; color:#09F; font-size:14px; text-transform:uppercase;">
 		  			<strong>If you love this plugin, <a href="http://wordpress.org/extend/plugins/internet-explorer-alert" target="_blank">Please Rate THIS Five Star.</a></strong>
 		  		</div>
